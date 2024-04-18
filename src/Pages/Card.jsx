@@ -1,23 +1,12 @@
 import {
   Box,
   Button,
-  ButtonGroup,
-  Card,
-  CardBody,
-  CardFooter,
-  Divider,
-  Heading,
-  Image,
-  Stack,
   Text,
-  useToast,
-  Grid,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
-// import "./Style.css"
 
 const Cards = ({ pokemon }) => {
   const navigate = useNavigate();
