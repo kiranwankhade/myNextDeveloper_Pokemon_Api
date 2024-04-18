@@ -12,8 +12,8 @@ const Home = () => {
 
   const getDailyOffset = () => {
     // Check the date and get random pokemon
-    // const today = new Date().toISOString().slice(0, 10);
-    const today = "2024-04-22";//testing
+    const today = new Date().toISOString().slice(0, 10);
+    // const today = "2024-04-21";//testing
     const storedDate = localStorage.getItem('date');
     if (storedDate !== today) {
       // Generate a random offset every new day
