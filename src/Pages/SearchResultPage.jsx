@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Text,Button } from "@chakra-ui/react";
 import Cards from "../Comonents/Card";
 import { Link, useLocation, useParams } from "react-router-dom";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 
 const SearchResultPage = () => {
     const { q } = useParams();
@@ -30,21 +31,29 @@ const SearchResultPage = () => {
   
     return (
       <Box w="100%" margin="auto" bgColor="#1a202c">
-        <Text color="white" fontSize={["1.5rem","1.5rem","1.5rem","1.5rem"]} mb="1rem">
+        <Text color="white" fontSize={["1.5rem","1.5rem","1.5rem","1.5rem"]} mt='2rem' ml='2rem'>
           Search Results for "{q}"
         </Text>
         <Link to="/" style={{ textDecoration: "none", color: "#4285f4" }}>
-          <Button
-            m="1rem"
-            bgColor="#4285f4"
-            color="white"
-            size="md"
-            _hover={{
-              bgColor: "#4285f4",
-            }}
-          >
-            Back
-          </Button>
+        <Button
+        color="white"
+        fontSize="1rem"
+        bgColor='transparent'
+        mt='1rem'
+        ml="2rem"
+        mb='2rem'
+        display="flex"
+        alignItems="center"
+        _hover={{
+          backgroundColor: "#427e90",
+          color:'white'
+        }}
+        padding='0.5rem'
+      >
+        <FaLongArrowAltLeft style={{ marginRight: "0.5rem" }} />
+        Back
+        
+      </Button>
         </Link>
         <Box
           display="grid"

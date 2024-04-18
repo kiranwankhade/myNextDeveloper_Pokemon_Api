@@ -25,6 +25,7 @@ const RandomCard = ({ pokemon }) => {
           backgroundColor="white"
           color="black"
           display="flex"
+          flexDirection={['column','column','row','row']}
           gap="2rem"
         >
           <Image

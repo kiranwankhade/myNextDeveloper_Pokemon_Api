@@ -7,12 +7,14 @@ import {
   Center,
   Spinner,
   Button,
-  Flex,
+  Image,
   VStack,
 } from "@chakra-ui/react";
 import RandomCard from "../Comonents/RandomCard";
 import SearchResultPage from "./SearchResultPage";
 import { useNavigate } from "react-router-dom";
+
+import pokemonImage from "../Assets/pokemon.png"
 
 const Home = () => {
   const [pokemonData, setPokemonData] = useState([]);
@@ -103,10 +105,9 @@ const Home = () => {
     <Box w="100%" margin="auto" bgColor="#1a202c">
       <Box w="90%" margin="auto">
         <br />
+        <br />
         <Center>
-          <Heading color={"#4285f4"} fontSize={["2rem", "3rem", "4rem", "4rem"]}>
-            Pokemon's Data
-          </Heading>
+          <Image w={['50%','50%','50%','20%']} src={pokemonImage} alt="Pokemon Logo" />
         </Center>
         <br />
         <Box
