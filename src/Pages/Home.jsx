@@ -139,6 +139,7 @@ const Home = () => {
           </VStack>
         ) : <RandomCard pokemon={randomPokemon} />}
       </Box>
+      <br />
     </Box>
   );
 };
