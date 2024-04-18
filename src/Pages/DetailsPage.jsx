@@ -28,9 +28,7 @@ const DetailsPage = () => {
         color="white"
         fontSize="1rem"
         bgColor='transparent'
-        mt='1rem'
         ml="2rem"
-        mb='2rem'
         display="flex"
         alignItems="center"
         _hover={{
@@ -49,12 +47,12 @@ const DetailsPage = () => {
         </Heading>
         <Box></Box> 
       </Box>
-      {loading ? ( // Conditional rendering of loader while data is being fetched
+      {loading ? ( 
         <Flex justifyContent="center" alignItems="center" height="70vh">
           <Spinner size="xl" color="blue.500" />
         </Flex>
       ) : (
-        <Box fontFamily='cursive' width="80%" margin="auto" mt="1rem" display="flex" flexDirection={['column', 'column', 'row', 'row']} justifyContent="center" alignItem="center" gap="2rem">
+        <Box fontFamily='cursive' width="80%" margin="auto" mt="2rem" display="flex" flexDirection={['column', 'column', 'row', 'row']} justifyContent="center" alignItem="center" gap="2rem">
           <Image width={["100%","80%","80%","80%"]} height={["50vh","60vh","60vh","70vh"]} borderRadius="10px" src={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`} alt={pokemon.name} />
           <Box width={["100%","80%","80%","80%"]} textAlign="justify">
             <Text fontSize={["1.2rem","1.2rem","1.2rem","1.5rem"]} fontWeight="bold" color="white" mt="1rem" mb={'0.5rem'}>Pokemon Name: <Text as='span' color='#c662a5'>{pokemon.name}</Text></Text>
