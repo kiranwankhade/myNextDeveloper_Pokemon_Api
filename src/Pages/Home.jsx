@@ -172,7 +172,7 @@ const Home = () => {
                 justifyContent="center"
                 alignItems="center"
                 gap="30px"
-                margin="2rem"
+                p='2rem'
               >
                 <Button
                   colorScheme="blue"
