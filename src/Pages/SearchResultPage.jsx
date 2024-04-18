@@ -30,8 +30,8 @@ const SearchResultPage = () => {
     const isPrevDisabled = currentPage === 1;
   
     return (
-      <Box w="100%" margin="auto" bgColor="#1a202c">
-        <Text color="white" fontSize={["1.5rem","1.5rem","1.5rem","1.5rem"]} mt='2rem' ml='2rem'>
+      <Box w="100%" margin="auto" height={filteredPokemon.length < 10 ? '100vh' :'' } bgColor={filteredPokemon.length === 1 ? "#1a202c" : "transparent"}>
+        <Text color="white" fontSize={["1.5rem","1.5rem","1.5rem","1.5rem"]} pt='2rem' ml='2rem'>
           Search Results for "{q}"
         </Text>
         <Link to="/" style={{ textDecoration: "none", color: "#4285f4" }}>

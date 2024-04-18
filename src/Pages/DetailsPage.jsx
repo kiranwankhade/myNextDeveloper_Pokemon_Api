@@ -44,7 +44,7 @@ const DetailsPage = () => {
         
       </Button>
         </Link>
-        <Heading  fontSize={["1.1rem","2rem","3rem","4rem"]} fontFamily='cursive' color="#4285f4">
+        <Heading  fontSize={["1.1rem","2rem","2rem","3rem"]} fontFamily='cursive' color="#4285f4">
           Pokemon {pokemon.name} Details
         </Heading>
         <Box></Box> 
