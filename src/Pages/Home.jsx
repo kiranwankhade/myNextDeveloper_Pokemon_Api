@@ -105,13 +105,12 @@ const Home = () => {
     <Box w="100%" margin="auto" bgColor="#1a202c">
       <Box w="90%" margin="auto">
         <br />
-        <br />
         <Center>
           <Image w={['50%','50%','50%','20%']} src={pokemonImage} alt="Pokemon Logo" />
         </Center>
         <br />
         <Box
-          margin={["0.5rem", "1rem", "2rem", "2rem"]}
+          margin={["0.5rem", "1rem", "1rem", "1rem"]}
           display="flex"
           flexDirection={["column", "row", "row", "row"]}
           gap="10px"

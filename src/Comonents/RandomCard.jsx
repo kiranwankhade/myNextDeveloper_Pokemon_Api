@@ -26,12 +26,14 @@ const RandomCard = ({ pokemon }) => {
           color="black"
           display="flex"
           flexDirection={['column','column','row','row']}
+          justifyContent='center'
+          alignItem='center'
           gap="2rem"
         >
           <Image
             padding={"1rem"}
-            width={["100%", "50%", "50%", "50%"]}
-            height={["50vh", "60vh", "60vh", "60vh"]}
+            width={["100%", "50%", "50%", "30%"]}
+            height={["50vh", "60vh", "60vh", "50vh"]}
             borderRadius="10px"
             src={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
             alt={pokemon.name}
@@ -83,16 +85,17 @@ const RandomCard = ({ pokemon }) => {
             </Box>
 
             <Button
-              color="white"
-              fontSize="1.5rem"
-              backgroundColor="#427e90"
-              m="1rem"
+              color="#427e90"
+              fontSize="1rem"
+            //   m="1rem"
               display="flex"
               alignItems="center"
               onClick={handleDetailsClick}
               _hover={{
                 backgroundColor: "#427e90",
+                color:'white'
               }}
+              padding='0.2rem'
             >
               Details <FaLongArrowAltRight style={{ marginLeft: "0.5rem" }} />
             </Button>

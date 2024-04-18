@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Box, Text, Heading, Image, Badge, Flex, Spinner, Button  } from '@chakra-ui/react';
+import { FaLongArrowAltLeft } from 'react-icons/fa';
 
 const DetailsPage = () => {
   const { id } = useParams();
@@ -22,10 +23,26 @@ const DetailsPage = () => {
   return (
     <Box bgColor='#1a202c' color="#333" minHeight="100vh" py="4">
        <Box  mb="1rem" display="flex" alignItems="center" justifyContent="space-between">
-        <Link to="/" style={{ textDecoration: 'none', color: '#4285f4' }}>
-          <Button m='1rem' bgColor='#4285f4' color='white' size="md" _hover={{
-            bgColor:'#4285f4'
-          }}>Back</Button>
+       <Link to="/" style={{ textDecoration: "none", color: "#4285f4" }}>
+        <Button
+        color="white"
+        fontSize="1rem"
+        bgColor='transparent'
+        mt='1rem'
+        ml="2rem"
+        mb='2rem'
+        display="flex"
+        alignItems="center"
+        _hover={{
+          backgroundColor: "#427e90",
+          color:'white'
+        }}
+        padding='0.5rem'
+      >
+        <FaLongArrowAltLeft style={{ marginRight: "0.5rem" }} />
+        Back
+        
+      </Button>
         </Link>
         <Heading  fontSize={["1.1rem","2rem","3rem","4rem"]} fontFamily='cursive' color="#4285f4">
           Pokemon {pokemon.name} Details
