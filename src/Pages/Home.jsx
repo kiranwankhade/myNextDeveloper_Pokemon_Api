@@ -109,13 +109,13 @@ const Home = () => {
       <Box w="90%" margin="auto">
         <br />
         <Center>
-          <Heading color={"#4285f4"} fontSize="4rem">
+          <Heading color={"#4285f4"} fontSize={["2rem","3rem","4rem","4rem"]}>
             Pokemon's Data
           </Heading>
         </Center>
         <br />
         <Box
-          margin="2rem"
+          margin={["0.5rem","1rem","2rem","2rem"]}
           display="flex"
           flexDirection={["column", "row", "row", "row"]}
           gap="10px"

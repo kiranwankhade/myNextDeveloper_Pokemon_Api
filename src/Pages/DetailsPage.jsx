@@ -21,13 +21,13 @@ const DetailsPage = () => {
 
   return (
     <Box bgColor='#1a202c' color="#333" minHeight="100vh" py="4">
-       <Box  pb="1rem" mb="2rem" display="flex" alignItems="center" justifyContent="space-between">
+       <Box  mb="1rem" display="flex" alignItems="center" justifyContent="space-between">
         <Link to="/" style={{ textDecoration: 'none', color: '#4285f4' }}>
           <Button m='1rem' bgColor='#4285f4' color='white' size="md" _hover={{
             bgColor:'#4285f4'
           }}>Back</Button>
         </Link>
-        <Heading as="h1" fontSize="4rem" fontFamily='cursive' color="#4285f4">
+        <Heading  fontSize={["1.1rem","2rem","3rem","4rem"]} fontFamily='cursive' color="#4285f4">
           Pokemon {pokemon.name} Details
         </Heading>
         <Box></Box> 
@@ -37,28 +37,41 @@ const DetailsPage = () => {
           <Spinner size="xl" color="blue.500" />
         </Flex>
       ) : (
-        <Box fontFamily='cursive' width="80%" margin="auto" mt="1rem" display="flex" flexDirection={['column', 'row', 'row', 'row']} justifyContent="center" alignItem="center" gap="2rem">
-          <Image width="60%" height="70vh" borderRadius="10px" src={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`} alt={pokemon.name} />
-          <Box width="80%" textAlign="justify">
-            <Text fontSize="2rem" fontWeight="bold" color="white" mt="1rem">Pokemon Name: <Text as='span' color='#c662a5'>{pokemon.name}</Text></Text>
-            <Text fontSize="1.5rem" fontWeight="bold" color="white">Pokemon Order: <Text as='span' color='#c662a5'>#{pokemon.order}</Text></Text>
-            <Text fontSize="1.5rem" fontWeight="bold" color="white">Pokemon Types:</Text>
+        <Box fontFamily='cursive' width="80%" margin="auto" mt="1rem" display="flex" flexDirection={['column', 'column', 'row', 'row']} justifyContent="center" alignItem="center" gap="2rem">
+          <Image width={["100%","80%","80%","80%"]} height={["50vh","60vh","60vh","70vh"]} borderRadius="10px" src={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`} alt={pokemon.name} />
+          <Box width={["100%","80%","80%","80%"]} textAlign="justify">
+            <Text fontSize={["1.2rem","1.2rem","1.2rem","1.5rem"]} fontWeight="bold" color="white" mt="1rem" mb={'0.5rem'}>Pokemon Name: <Text as='span' color='#c662a5'>{pokemon.name}</Text></Text>
+            
+            <Text fontSize={["1.2rem","1.2rem","1.2rem","1.5rem"]}  fontWeight="bold" color="white" mb={'0.5rem'}>Pokemon Order: <Text as='span' color='#c662a5'>#{pokemon.order}</Text></Text>
+            <Flex alignItem='center' gap='2.5rem' mb={'0.5rem'}>
+            <Text fontSize={["1.2rem","1.2rem","1.2rem","1.5rem"]} fontWeight="bold" color="white">Pokemon Types:</Text>
             <Flex justifyContent="justify" mt="1rem" mb="1rem">
               {pokemon?.types?.map((type, index) => (
-                <Badge key={index} variant="outline"  color='#c662a5' fontSize="1.2rem" mx="0.5rem">{type.type.name}</Badge>
+                <Badge fontSize={["1rem","1rem","1rem","1.2rem"]} key={index} variant="outline"  color='#c662a5'  mx="0.5rem">{type.type.name}</Badge>
               ))}
             </Flex>
-            <Flex  alignItem='center' gap='2.5rem'>
-            <Text fontSize="1.5rem" fontWeight="bold" color="white">Pokemon Abilities:</Text>
-            <ul >
-              {pokemon?.abilities?.map((ability, index) => (
-                <li key={index} style={{ fontSize: '1.5rem',color:'#c662a5'  }}>{ability.ability.name}</li>
-              ))}
-            </ul>
             </Flex>
-            <Text fontSize="1.5rem" fontWeight="bold" color="white">Pokemon Base Experience:  <Text as='span' color='#c662a5'>{pokemon.base_experience}</Text></Text>
-            <Text fontSize="1.5rem" fontWeight="bold" color="white">Pokemon Height: <Text as='span' color='#c662a5'>{pokemon.height}</Text></Text>
-            <Text fontSize="1.5rem" fontWeight="bold" color="white">Pokemon Weight: <Text as='span' color='#c662a5'>{pokemon.weight}</Text></Text>
+            <Flex mb={'0.5rem'} alignItem='center' gap={["0rem", "2.5rem", "2rem", "2rem"]}>
+            <Text fontSize={["1.2rem","1.2rem","1.2rem","1.5rem"]} fontWeight="bold" color="white">Pokemon Abilities:</Text>
+            
+              <Flex flexDirection='column' gap={['0rem','1rem','1rem','1rem']}>
+                {pokemon?.abilities?.map((ability, index) => (
+                
+                <Text
+                    fontSize={{ base: "1.2rem", md: "1.5rem" }} // Adjust font size based on screen size
+                    color='#c662a5' // Set color
+                    textAlign='justify'
+                >
+                    {index+1}. {ability.ability.name}
+                </Text>
+                ))}
+              </Flex>
+            
+            </Flex>
+            
+            <Text mb={'0.5rem'} fontSize={["1.2rem","1.2rem","1.2rem","1.5rem"]}  fontWeight="bold" color="white" >Pokemon Base Experience:  <Text as='span' color='#c662a5'>{pokemon.base_experience}</Text></Text>
+            <Text mb={'0.5rem'} fontSize={["1.2rem","1.2rem","1.2rem","1.5rem"]}  fontWeight="bold" color="white">Pokemon Height: <Text as='span' color='#c662a5'>{pokemon.height}</Text></Text>
+            <Text mb={'0.5rem'} fontSize={["1.2rem","1.2rem","1.2rem","1.5rem"]}  fontWeight="bold" color="white">Pokemon Weight: <Text as='span' color='#c662a5'>{pokemon.weight}</Text></Text>
           </Box>
         </Box>
       )}
