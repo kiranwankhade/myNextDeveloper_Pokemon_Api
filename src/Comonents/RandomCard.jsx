@@ -25,7 +25,7 @@ const RandomCard = ({ pokemon }) => {
           backgroundColor="white"
           color="black"
           display="flex"
-          flexDirection={['column','column','row','row']}
+          flexDirection={['column','column','column','row']}
           justifyContent='center'
           alignItem='center'
           gap="2rem"
