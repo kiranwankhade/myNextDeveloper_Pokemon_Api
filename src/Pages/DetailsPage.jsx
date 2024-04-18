@@ -20,10 +20,10 @@ const DetailsPage = () => {
   }, [id]);
 
   return (
-    <Box  color="#333" minHeight="100vh" py="4">
+    <Box bgColor='#1a202c' color="#333" minHeight="100vh" py="4">
        <Box  pb="1rem" mb="2rem" display="flex" alignItems="center" justifyContent="space-between">
         <Link to="/" style={{ textDecoration: 'none', color: '#4285f4' }}>
-          <Button m='1rem' bgColor='#4285f4' size="md" _hover={{
+          <Button m='1rem' bgColor='#4285f4' color='white' size="md" _hover={{
             bgColor:'#4285f4'
           }}>Back</Button>
         </Link>

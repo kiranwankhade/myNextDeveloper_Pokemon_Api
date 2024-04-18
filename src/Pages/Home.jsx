@@ -73,7 +73,7 @@ useEffect(() => {
   const visiblePokemon = filteredPokemon.slice((currentPage - 1) * perPage, currentPage * perPage);
 
   return (
-    <Box w='90%' margin='auto'>
+    <Box w='100%' margin='auto' bgColor='#1a202c'>
       <Box w='90%' margin='auto'>
       <br />
       <Center>
@@ -83,7 +83,7 @@ useEffect(() => {
       </Center>
       <br />
       <Box margin='2rem' display='flex' flexDirection={['column', 'row', 'row', 'row']} gap='10px'>
-        <Text fontSize='1.5rem'> Search Pokemon</Text>
+        <Text fontSize='1.5rem' textColor='white'> Search Pokemon</Text>
         <Input type='text' placeholder='pikachu' _placeholder={{ opacity: 1, color: 'gray.500' }} width='auto' color='black' bg={'white'} value={search} onChange={(e) => setSearch(e.target.value)} />
       </Box>
       <br />
@@ -106,7 +106,7 @@ useEffect(() => {
             <Button colorScheme="blue" isDisabled={currentPage === 1} onClick={handlePrevPage} mr={2}>
               Previous
             </Button>
-            <Text> {currentPage}</Text>
+            <Text color='white' fontSize='1rem' fontWeight='bold'> {currentPage}</Text>
             <Button colorScheme="blue" isDisabled={currentPage === totalPages} onClick={handleNextPage}>
               Next
             </Button>
