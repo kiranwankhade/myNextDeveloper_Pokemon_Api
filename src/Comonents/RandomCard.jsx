@@ -15,7 +15,7 @@ const RandomCard = ({ pokemon }) => {
       margin="auto"
       width={["80%", "80%", "80%", "80%"]}
     >
-      <Text color="white" fontSize="1.5rem" mb="1rem">
+      <Text color="white" fontSize="1.5rem" mb="1rem" textAlign='center'>
         Random Pokemon
       </Text>
       {pokemon ? (
@@ -32,9 +32,10 @@ const RandomCard = ({ pokemon }) => {
         >
           <Image
             padding={"1rem"}
-            width={["100%", "50%", "50%", "30%"]}
+            width={["100%", "100%", "100%", "30%"]}
             height={["50vh", "60vh", "60vh", "50vh"]}
             borderRadius="10px"
+            textAlign='center'
             src={`https://img.pokemondb.net/artwork/large/${pokemon.name}.jpg`}
             alt={pokemon.name}
           />
@@ -84,21 +85,24 @@ const RandomCard = ({ pokemon }) => {
               </Text>
             </Box>
 
-            <Button
+            <Box
               color="#427e90"
               fontSize="1rem"
-            //   m="1rem"
+              m="1rem"
               display="flex"
               alignItems="center"
               onClick={handleDetailsClick}
               _hover={{
                 backgroundColor: "#427e90",
-                color:'white'
+                color:'white',
+                width:'50%',
+                borderRadius:'10px'
               }}
-              padding='0.2rem'
+              padding='0.5rem'
+              cursor='pointer'
             >
               Details <FaLongArrowAltRight style={{ marginLeft: "0.5rem" }} />
-            </Button>
+            </Box>
           </Box>
         </Box>
       ) : (

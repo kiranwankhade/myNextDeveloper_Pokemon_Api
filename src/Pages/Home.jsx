@@ -96,13 +96,20 @@ const Home = () => {
   const nav = useNavigate();
   const handleSearch = () => {
     const filteredPokemon = pokemonData.filter(pokemon =>
-        pokemon.name.toLowerCase().includes(search.toLowerCase())
-      );
-      nav(`/search/${encodeURIComponent(search)}`, { state: { filteredPokemon } });
+      pokemon.name.toLowerCase().includes(search.toLowerCase())
+    );
+    nav(`/search/${encodeURIComponent(search)}`, { state: { filteredPokemon } });
+  };
+
+  
+  const handleKeyPress = (event) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
   };
 
   return (
-    <Box w="100%" margin="auto" bgColor="#1a202c">
+    <Box w="100%" margin="auto"  >
       <Box w="90%" margin="auto">
         <br />
         <Center>
@@ -114,11 +121,9 @@ const Home = () => {
           display="flex"
           flexDirection={["column", "row", "row", "row"]}
           gap="10px"
+          justifyContent='center'
+          alignItem='center'
         >
-          <Text fontSize="1.5rem" textColor="white">
-            {" "}
-            Search Pokemon
-          </Text>
           <Input
             type="text"
             placeholder="pikachu"
@@ -128,13 +133,14 @@ const Home = () => {
             bg={"white"}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
+            onKeyPress={handleKeyPress}
           />
           <Button colorScheme="blue" onClick={handleSearch}>
             Search
           </Button>
         </Box>
         {loading ? (
-          <VStack height="100vh">
+          <VStack>
             <Spinner size="xl" color="blue.500" />
           </VStack>
         ) : <RandomCard pokemon={randomPokemon} />}

@@ -21,7 +21,7 @@ const DetailsPage = () => {
   }, [id]);
 
   return (
-    <Box bgColor='#1a202c' color="#333" minHeight="100vh" py="4">
+    <Box color="#333" py="4">
        <Box  mb="1rem" display="flex" alignItems="center" justifyContent="space-between">
        <Link to="/" style={{ textDecoration: "none", color: "#4285f4" }}>
         <Button
