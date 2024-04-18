@@ -29,8 +29,8 @@ const SearchResultPage = () => {
     const isPrevDisabled = currentPage === 1;
   
     return (
-      <Box w="80%" margin="auto" mb="2rem">
-        <Text color="white" fontSize="1.5rem" mb="1rem">
+      <Box w="100%" margin="auto" bgColor="#1a202c">
+        <Text color="white" fontSize={["1.5rem","1.5rem","1.5rem","1.5rem"]} mb="1rem">
           Search Results for "{q}"
         </Text>
         <Link to="/" style={{ textDecoration: "none", color: "#4285f4" }}>
@@ -54,6 +54,8 @@ const SearchResultPage = () => {
             lg: "repeat(3,1fr)",
           }}
           gap="20px"
+          width='90%'
+          margin='auto'
         >
           {visiblePokemon?.map((pokemon, i) => {
             return <Cards key={i} pokemon={pokemon} />;

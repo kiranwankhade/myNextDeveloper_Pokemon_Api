@@ -102,6 +102,7 @@ const RandomCard = ({ pokemon }) => {
           <Spinner size="xl" color="blue.500" />
         </Flex>
       )}
+      <br/>
     </Box>
   );
 };
