@@ -73,7 +73,7 @@ useEffect(() => {
   const visiblePokemon = filteredPokemon.slice((currentPage - 1) * perPage, currentPage * perPage);
 
   return (
-    <Box w='100%' margin='auto' bgColor='#1a202c'>
+    <Box w='100%' height='100vh ' margin='auto' bgColor='#1a202c'>
       <Box w='90%' margin='auto'>
       <br />
       <Center>
@@ -93,7 +93,7 @@ useEffect(() => {
         </Center>
       ) : filteredPokemon.length === 0 && search !== '' ? (
         <Center>
-          <Text>No Pokemon found matching the search criteria.</Text>
+          <Text color='white'>No Pokemon found matching the search criteria.</Text>
         </Center>
       ) : (
         <>
@@ -102,7 +102,7 @@ useEffect(() => {
               return <Cards key={i} pokemon={pokemon} />;
             })}
           </Box>
-          <Flex mt={4} flexDirection='row' justifyContent='center' alignItem='center' gap='30px'>
+          <Flex m='2rem'mb={8} flexDirection='row' justifyContent='center' alignItem='center' gap='30px'>
             <Button colorScheme="blue" isDisabled={currentPage === 1} onClick={handlePrevPage} mr={2}>
               Previous
             </Button>
@@ -111,6 +111,8 @@ useEffect(() => {
               Next
             </Button>
           </Flex>
+          {/* Add some bottom space */}
+            <Box marginBottom="4rem" />
         </>
       )}
     </Box>
