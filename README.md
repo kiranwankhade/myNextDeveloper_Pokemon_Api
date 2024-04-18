@@ -44,3 +44,10 @@ npm install
 
 
 ## ScreenShot of the app
+
+![PA1](https://github.com/kiranwankhade/myNextDeveloper_Pokemon_Api/assets/49937312/89bafc7e-9b2d-4fea-b77c-48aa3a86c4ef)
+
+![PA2](https://github.com/kiranwankhade/myNextDeveloper_Pokemon_Api/assets/49937312/4ad78c84-d1f2-43e7-bef1-a90c4a0701cb)
+
+![PA3](https://github.com/kiranwankhade/myNextDeveloper_Pokemon_Api/assets/49937312/4965187e-3846-4fb4-9a9e-055010c13693)
+
