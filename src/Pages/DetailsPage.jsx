@@ -58,7 +58,7 @@ const DetailsPage = () => {
                 {pokemon?.abilities?.map((ability, index) => (
                 
                 <Text
-                    fontSize={{ base: "1.2rem", md: "1.5rem" }} // Adjust font size based on screen size
+                    fontSize={{ base: "1.2rem", md: "1.5rem" }}
                     color='#c662a5' // Set color
                     textAlign='justify'
                 >
