@@ -45,9 +45,15 @@ npm install
 
 ## ScreenShot of the app
 
-![PA1](https://github.com/kiranwankhade/myNextDeveloper_Pokemon_Api/assets/49937312/89bafc7e-9b2d-4fea-b77c-48aa3a86c4ef)
+![PANew1](https://github.com/kiranwankhade/myNextDeveloper_Pokemon_Api/assets/49937312/77687a4a-f069-4b92-b7c6-f68dc386f7f6)
 
-![PA2](https://github.com/kiranwankhade/myNextDeveloper_Pokemon_Api/assets/49937312/4ad78c84-d1f2-43e7-bef1-a90c4a0701cb)
+![PANew4](https://github.com/kiranwankhade/myNextDeveloper_Pokemon_Api/assets/49937312/ab80a0f0-0c56-4f85-b89f-3fcc7ff1c281)
 
-![PA3](https://github.com/kiranwankhade/myNextDeveloper_Pokemon_Api/assets/49937312/4965187e-3846-4fb4-9a9e-055010c13693)
+![PANew2](https://github.com/kiranwankhade/myNextDeveloper_Pokemon_Api/assets/49937312/2f51e5ab-c224-4eb3-aa7a-24f9bd28a448)
+
+![PANew5](https://github.com/kiranwankhade/myNextDeveloper_Pokemon_Api/assets/49937312/5457e081-1874-4adb-8332-cdd178ce2c47)
+
+![PANew3](https://github.com/kiranwankhade/myNextDeveloper_Pokemon_Api/assets/49937312/2d928d4e-e569-44a5-bf22-c398907a5f3e)
+
+![PANew6](https://github.com/kiranwankhade/myNextDeveloper_Pokemon_Api/assets/49937312/c5b64425-4884-49fc-a4d4-8fa8a15ad585)
 
