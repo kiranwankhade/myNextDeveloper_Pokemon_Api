@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Text, Button } from "@chakra-ui/react";
-import Cards from "../Comonents/Card";
+import Cards from "../Components/Card";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 

@@ -1,119 +1,99 @@
 import React, { useEffect, useState } from "react";
 import {
-  Box,
-  Input,
-  Text,
-  Heading,
-  Center,
-  Spinner,
-  Button,
-  Image,
-  VStack,
+  Box, Input, Center, Spinner, Button, Image, VStack,
 } from "@chakra-ui/react";
-import RandomCard from "../Comonents/RandomCard";
-import SearchResultPage from "./SearchResultPage";
+import RandomCard from "../Components/RandomCard";
 import { useNavigate } from "react-router-dom";
-
-import pokemonImage from "../Assets/pokemon.png"
+import pokemonImage from "../Assets/pokemon.png";
 
 const Home = () => {
-  const [pokemonData, setPokemonData] = useState([]);
-  const [randomPokemon, setRandomPokemon] = useState(null);
+   const [randomPokemon, setRandomPokemon] = useState(null);
   const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(true);
-  const perPage = 10;
-  const totalPages = Math.ceil(pokemonData.length / perPage);
+  const [loading, setLoading] = useState(false);
+  const [pokemonData, setPokemonData] = useState([]);
+  const navigate = useNavigate();
 
-  const getDailyOffset = () => {
-    const today = new Date().toISOString().slice(0, 10);
-    // const today = "2024-04-20";//testing
-    const storedDate = localStorage.getItem("date");
-    if (storedDate !== today) {
-      const randomOffset = Math.floor(Math.random() * 5) * 5;
-      localStorage.setItem("offset", randomOffset);
-      localStorage.setItem("date", today);
-      return randomOffset;
+  const fetchAllPokemon = async () => {
+    try {
+      const response = await fetch("https://pokeapi.co/api/v2/pokemon/");
+      const data = await response.json();
+      setPokemonData(data.results);
+    } catch (error) {
+      console.error("Failed to fetch data:", error);
     }
-    return parseInt(localStorage.getItem("offset"), 10);
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const offset = getDailyOffset();
-        const allPokemon = [];
-        for (let i = 0; i < 5; i++) {
-          const response = await fetch(
-            `https://pokeapi.co/api/v2/pokemon?offset=${
-              offset + i * 10
-            }&limit=10`
-          );
-          const data = await response.json();
-          const pokemonData = await Promise.all(
-            data.results.map((pokemon) => fetchPokemon(pokemon.url))
-          );
-          allPokemon.push(...pokemonData);
-        }
-        setPokemonData(allPokemon);
-        setLoading(false);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, []);
-
-  const fetchPokemon = async (url) => {
+  const fetchPokemonByID = async (id) => {
     try {
-      const response = await fetch(url);
-      return await response.json();
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      return data;
     } catch (error) {
-      console.error(error);
+      console.error("Failed to fetch data:", error);
       return null;
     }
   };
 
-  useEffect(() => {
-    const fetchRandomPokemon = async () => {
-      try {
-        const offset = getDailyOffset();
-        const response = await fetch(
-          `https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=1`
-        );
-        const data = await response.json();
-        const randomPokemonData = await fetchPokemon(data.results[0].url);
-        setRandomPokemon(randomPokemonData);
-      } catch (error) {
-        console.error(error);
+  const getRandomPokemon = async () => {
+    setLoading(true);
+    try {
+      const today = new Date().toISOString().slice(0, 10);
+      const storedDate = localStorage.getItem("kirandate");
+      if (storedDate !== today) {
+        const randomId = Math.floor(Math.random() * 898) + 1;
+        const pokemon = await fetchPokemonByID(randomId);
+        if (pokemon) {
+          setRandomPokemon(pokemon);
+          localStorage.setItem("randomPokemonId", pokemon.id);
+          localStorage.setItem("kirandate", today);
+        }
+      } else {
+        const storedId = localStorage.getItem("randomPokemonId");
+        const pokemon = await fetchPokemonByID(storedId);
+        if (pokemon) {
+          setRandomPokemon(pokemon);
+        }
       }
-    };
-    fetchRandomPokemon();
-  }, []);
-
-  
-
-  const nav = useNavigate();
-  const handleSearch = () => {
-    const filteredPokemon = pokemonData.filter(pokemon =>
-      pokemon.name.toLowerCase().includes(search.toLowerCase())
-    );
-    nav(`/search/${encodeURIComponent(search)}`, { state: { filteredPokemon } });
+      setLoading(false);
+    } catch (error) {
+      console.error("Failed to fetch random Pokemon:", error);
+      setLoading(false);
+    }
   };
 
-  
+  useEffect(() => {
+    fetchAllPokemon();
+    getRandomPokemon();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleSearch = () => {
+    setLoading(true);
+    const filteredPokemon = pokemonData.filter((pokemon) =>
+      pokemon.name.toLowerCase().includes(search.toLowerCase())
+    );
+    setLoading(false);
+    navigate(`/search/${encodeURIComponent(search)}`, {
+      state: { filteredPokemon },
+    });
+  };
+
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
       handleSearch();
     }
   };
 
+
   return (
-    <Box w="100%" margin="auto"  >
+    <Box w="100%" margin="auto">
       <Box w="90%" margin="auto">
         <br />
         <Center>
-          <Image w={['50%','50%','50%','20%']} src={pokemonImage} alt="Pokemon Logo" />
+          <Image w={['50%', '50%', '50%', '20%']} src={pokemonImage} alt="Pokemon Logo" />
         </Center>
         <br />
         <Box
@@ -126,7 +106,7 @@ const Home = () => {
         >
           <Input
             type="text"
-            placeholder="pikachu"
+            placeholder="Search Pokémon"
             _placeholder={{ opacity: 1, color: "gray.500" }}
             width="auto"
             color="black"
@@ -143,7 +123,7 @@ const Home = () => {
           <VStack>
             <Spinner size="xl" color="blue.500" />
           </VStack>
-        ) : <RandomCard pokemon={randomPokemon} />}
+        ) : randomPokemon && <RandomCard pokemon={randomPokemon} />}
       </Box>
       <br />
     </Box>
