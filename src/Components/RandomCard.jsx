@@ -76,14 +76,14 @@ const RandomCard = ({ pokemon }) => {
                 <Text as="span" color="#427e90">
                   Pokemon Height:{" "}
                 </Text>
-                {pokemon.height}
+                {pokemon.height/10} metres
               </Text>
 
               <Text mb="0.5rem" fontSize="1rem" fontWeight="bold">
                 <Text as="span" color="#427e90">
                   Pokemon Weight:{" "}
                 </Text>
-                {pokemon.weight}
+                {pokemon.weight/10} Kgs
               </Text>
             </Box>
 

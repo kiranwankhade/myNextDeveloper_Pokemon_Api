@@ -86,8 +86,8 @@ const DetailsPage = () => {
             </Flex>
             
             <Text mb={'0.5rem'} fontSize={["1.2rem","1.2rem","1.2rem","1.5rem"]}  fontWeight="bold" color="white" >Pokemon Base Experience:  <Text as='span' color='#c662a5'>{pokemon.base_experience}</Text></Text>
-            <Text mb={'0.5rem'} fontSize={["1.2rem","1.2rem","1.2rem","1.5rem"]}  fontWeight="bold" color="white">Pokemon Height: <Text as='span' color='#c662a5'>{pokemon.height}</Text></Text>
-            <Text mb={'0.5rem'} fontSize={["1.2rem","1.2rem","1.2rem","1.5rem"]}  fontWeight="bold" color="white">Pokemon Weight: <Text as='span' color='#c662a5'>{pokemon.weight}</Text></Text>
+            <Text mb={'0.5rem'} fontSize={["1.2rem","1.2rem","1.2rem","1.5rem"]}  fontWeight="bold" color="white">Pokemon Height: <Text as='span' color='#c662a5'>{pokemon.height/10} metres </Text></Text>
+            <Text mb={'0.5rem'} fontSize={["1.2rem","1.2rem","1.2rem","1.5rem"]}  fontWeight="bold" color="white">Pokemon Weight: <Text as='span' color='#c662a5'>{pokemon.weight/10} Kgs</Text></Text>
           </Box>
         </Box>
       )}
