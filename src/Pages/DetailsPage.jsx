@@ -36,6 +36,7 @@ const DetailsPage = () => {
           color:'white'
         }}
         padding='0.5rem'
+        fontFamily='cursive'
       >
         <FaLongArrowAltLeft style={{ marginRight: "0.5rem" }} />
         Back

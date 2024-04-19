@@ -15,9 +15,17 @@ const Home = () => {
 
   const fetchAllPokemon = async () => {
     try {
-      const response = await fetch("https://pokeapi.co/api/v2/pokemon/");
-      const data = await response.json();
-      setPokemonData(data.results);
+      let allPokemon = [];
+      // Loop through offsets from 0 to 30
+      for (let offset = 0; offset <= 30; offset += 30) {
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=30`);
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const data = await response.json();
+        allPokemon = [...allPokemon, ...data.results];
+      }
+      setPokemonData(allPokemon);
     } catch (error) {
       console.error("Failed to fetch data:", error);
     }
@@ -72,11 +80,12 @@ const Home = () => {
 
   const handleSearch = () => {
     setLoading(true);
+    const searchWithoutSpaces = search.replace(/\s/g, "");
     const filteredPokemon = pokemonData.filter((pokemon) =>
-      pokemon.name.toLowerCase().includes(search.toLowerCase())
+      pokemon.name.toLowerCase().includes(searchWithoutSpaces.toLowerCase())
     );
     setLoading(false);
-    navigate(`/search/${encodeURIComponent(search)}`, {
+    navigate(`/search/${encodeURIComponent(searchWithoutSpaces)}`, {
       state: { filteredPokemon },
     });
   };
@@ -89,7 +98,7 @@ const Home = () => {
 
 
   return (
-    <Box w="100%" margin="auto">
+    <Box w="100%" margin="auto" fontFamily='cursive'>
       <Box w="90%" margin="auto">
         <br />
         <Center>
@@ -103,6 +112,7 @@ const Home = () => {
           gap="10px"
           justifyContent='center'
           alignItem='center'
+          fontFamily='cursive'
         >
           <Input
             type="text"

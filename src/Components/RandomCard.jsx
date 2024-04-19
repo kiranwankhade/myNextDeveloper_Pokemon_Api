@@ -14,6 +14,7 @@ const RandomCard = ({ pokemon }) => {
     <Box
       margin="auto"
       width={["80%", "80%", "80%", "80%"]}
+      fontFamily='cursive'
     >
       <Text color="white" fontSize="1.5rem" mb="1rem" textAlign='center'>
         Random Pokemon
@@ -29,6 +30,7 @@ const RandomCard = ({ pokemon }) => {
           justifyContent='center'
           alignItem='center'
           gap="2rem"
+          fontFamily='cursive'
         >
           <Image
             padding={"1rem"}
@@ -40,7 +42,7 @@ const RandomCard = ({ pokemon }) => {
             alt={pokemon.name}
           />
 
-          <Box display="flex" flexDirection="column" alignItem="center" gap="1rem" mt="1rem">
+          <Box display="flex" flexDirection="column" alignItem="center" gap="1rem" mt="1rem" fontFamily='cursive'>
             <Box p="1rem">
               <Text fontSize="1rem" fontWeight="bold" mb="0.5rem">
                 <Text as="span" color="#427e90">

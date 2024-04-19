@@ -6,7 +6,6 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 
 const SearchResultPage = () => {
   const { q } = useParams();
-  console.log("q:", q);
   const location = useLocation();
   const filteredPokemon = location.state ? location.state.filteredPokemon : [];
   const [currentPage, setCurrentPage] = useState(1);
@@ -30,7 +29,7 @@ const SearchResultPage = () => {
   const isPrevDisabled = currentPage === 1;
 
   return (
-    <Box w="100%" margin="auto" display="flex" flexDirection="column">
+    <Box w="100%" margin="auto" display="flex" flexDirection="column" fontFamily='cursive'>
       <Box w="90%" margin="auto" flex="1">
         <Text
           color="white"
@@ -55,6 +54,7 @@ const SearchResultPage = () => {
               color: "white",
             }}
             padding="0.5rem"
+            fontFamily='cursive'
           >
             <FaLongArrowAltLeft style={{ marginRight: "0.5rem" }} />
             Back
